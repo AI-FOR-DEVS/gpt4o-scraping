@@ -6,10 +6,10 @@ import base64
 driver = webdriver.Chrome()
 
 # Open the webpage
-driver.get("https://ai-for-devs.com")
+driver.get("https://www.linkedin.com/in/sebastian-schlaak-3b7a5575/")
 
 # Take a screenshot and save it as 'screenshot.png'
-driver.save_screenshot("screenshot.png")
+driver.save_screenshot("sebastian.png")
 
 # Quit the WebDriver session
 driver.quit()
@@ -30,7 +30,12 @@ response = client.chat.completions.create(
       "content": [
         {
           "type": "text",
-          "text": "You are a conversion optimization specialist. Please provide a detailed analysis of the areas that need improvement to enhance our conversation rates. "
+          "text": """
+            You are a headhunter for a CTO position.
+            Please extract the most important facts about the candidate.
+
+            Respond in the JSON format.
+          """
         }
       ]
     },
@@ -62,4 +67,4 @@ response = client.chat.completions.create(
   presence_penalty=0
 )
 
-print(response.choices[0])
+print(response.choices[0].message.content)
