@@ -6,10 +6,10 @@ import base64
 driver = webdriver.Chrome()
 
 # Open the webpage
-driver.get("https://www.linkedin.com/in/sebastian-schlaak-3b7a5575/")
+driver.get("https://ai-for-devs.com")
 
 # Take a screenshot and save it as 'screenshot.png'
-driver.save_screenshot("sebastian.png")
+driver.save_screenshot("screenshot.png")
 
 # Quit the WebDriver session
 driver.quit()
@@ -31,8 +31,9 @@ response = client.chat.completions.create(
         {
           "type": "text",
           "text": """
-            You are a headhunter for a CTO position.
-            Please extract the most important facts about the candidate.
+            You are a UX expert.
+            You will be given a screenshot of a webpage.
+            You will then provide a list of observations and recommendations to enhance conversion rates on the webpage.
 
             Respond in the JSON format.
           """
